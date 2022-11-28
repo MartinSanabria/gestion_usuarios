@@ -1,0 +1,42 @@
+﻿@model WebApplication.Models.viewModels.TablaViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo","usuario",FormMethod.Post))
+{
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.id)
+            @Html.TextBoxFor(d => d.id, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d =>d.id ,null,new {@class="required" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(d => d.nombre)
+            @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.nombre, null, new { @class = "required" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(d => d.apellido);
+            @Html.TextBoxFor(d => d.apellido, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.apellido, null, new { @class = "required" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(d => d.fecha_nacimiento);
+            @Html.EditorFor(d => d.fecha_nacimiento, "", new { @class = "form-control" }) <br />
+            @Html.ValidationMessageFor(d => d.fecha_nacimiento, null, new { @class = "required" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.edad);
+            @Html.TextBoxFor(d => d.edad, "", new { @class = "form-control" })
+        </div>
+
+        <div style="text-align:right; margin-top:20px;">
+            <input  value="Guardar" class="btn btn-primary" type="submit"/>
+        </div>
+    </div>
+</div>
+}

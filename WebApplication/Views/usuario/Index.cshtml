@@ -1,0 +1,43 @@
+﻿@model List<WebApplication.Models.viewModels.listUsuarioViewModel>
+@{
+    ViewBag.Title = "Informacón de usuarios";
+}
+
+
+
+<div class="container-fluid mt-3">
+    <h2 style="text-align:center;">@ViewBag.Title</h2>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+       <a class="btn btn-primary me-md-2" type="button" href="~/usuario/Nuevo">Nuevo</a>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr class="text-bg-dark">
+                    <th>Clave</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>fecha nacimiento</th>
+                    <th>edad</th>
+                    <th></th>
+                </tr>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.id</td>
+                        <td>@oElement.nombre</td>
+                        <td>@oElement.apellido</td>
+                        <td>@oElement.fecha_nacimiento</td>
+                        <td>@oElement.edad</td>
+                        <td>
+                            <a class="btn btn-outline-secondary" href="~/usuario/editar/@oElement.id">Editar</a>
+                            <a class="btn btn-danger" href="~/usuario/eliminar/@oElement.id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+</div>
+
